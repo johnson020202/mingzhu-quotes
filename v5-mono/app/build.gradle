@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.lemon.mingzhu'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.lemon.mingzhu.mono'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    signingConfigs {
+        release {
+            def props = new Properties()
+            def f = new File('/Users/xindao/Documents/lemon code/mingzhu-quote/signing.properties')
+            if (f.exists()) props.load(new FileInputStream(f))
+            storeFile new File(props.getProperty('storeFile', '/Users/xindao/Documents/lemon code/mingzhu-quote/release.keystore'))
+            storePassword props.getProperty('storePassword', '')
+            keyAlias props.getProperty('keyAlias', 'mingzhu')
+            keyPassword props.getProperty('keyPassword', '')
+        }
+    }
+
+    buildTypes {
+        debug { applicationIdSuffix '.debug' }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            debuggable = project.hasProperty('dbgVerify')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions { jvmTarget = '17' }
+
+    packagingOptions {
+        resources.excludes += ['META-INF/*']
+    }
+
+    lint { abortOnError false }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.24'
+}
