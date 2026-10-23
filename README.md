@@ -92,3 +92,11 @@ v1-paper/ … v5-mono/       五个版本各自的 MainView.kt 与配色
 ## 字体
 
 得意黑 Smiley Sans © atelier-anchor，SIL Open Font License 1.1，见 `shared/fonts/LICENSE`。
+
+---
+
+## 版本记录
+
+- **v1.0.0**（2026-10-23）五个版本首发。真机环境：小米 10 Pro，Android 16（SDK 37），HyperOS V816。
+- 构建环境：JDK 21（`/opt/homebrew/opt/openjdk@21`），AGP 8.9.2，Kotlin 2.0.21，compileSdk 35，minSdk 26。
+- 五个包签名一致（SHA-256 `ce0d38e4…c152d`），后续升级请沿用同一个 `release.keystore`。
