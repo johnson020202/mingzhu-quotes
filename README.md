@@ -12,11 +12,11 @@
 
 | # | 版本 | 风格 | 下载 |
 |---|------|------|------|
-| 1 | 纸页 | 米白纸面、朱红小印、首字下沉，左右滑动翻页 | [明著摘录-1-纸页.apk](../../releases/latest/download/明著摘录-1-纸页.apk) |
-| 2 | 夜读 | 纯黑底、暖金强调、星点，适合睡前低亮度阅读 | [明著摘录-2-夜读.apk](../../releases/latest/download/明著摘录-2-夜读.apk) |
-| 3 | 朱砂 | 红黑白三色、朱砂边框、整版大印章 | [明著摘录-3-朱砂.apk](../../releases/latest/download/明著摘录-3-朱砂.apk) |
-| 4 | 青瓷 | 青灰底、可见格栅网格、手绘波线、尺子刻度进度 | [明著摘录-4-青瓷.apk](../../releases/latest/download/明著摘录-4-青瓷.apk) |
-| 5 | 极简 | 纯黑、超大序号与总数、终端感元信息 | [明著摘录-5-极简.apk](../../releases/latest/download/明著摘录-5-极简.apk) |
+| 1 | 纸页 | 米白纸面、朱红小印、首字下沉，左右滑动翻页 | [MingZhu-1-Paper.apk](../../releases/latest/download/MingZhu-1-Paper.apk) |
+| 2 | 夜读 | 纯黑底、暖金强调、星点，适合睡前低亮度阅读 | [MingZhu-2-Night.apk](../../releases/latest/download/MingZhu-2-Night.apk) |
+| 3 | 朱砂 | 红黑白三色、朱砂边框、整版大印章 | [MingZhu-3-Cinnabar.apk](../../releases/latest/download/MingZhu-3-Cinnabar.apk) |
+| 4 | 青瓷 | 青灰底、可见格栅网格、手绘波线、尺子刻度进度 | [MingZhu-4-Celadon.apk](../../releases/latest/download/MingZhu-4-Celadon.apk) |
+| 5 | 极简 | 纯黑、超大序号与总数、终端感元信息 | [MingZhu-5-Mono.apk](../../releases/latest/download/MingZhu-5-Mono.apk) |
 
 ## 安装
 
