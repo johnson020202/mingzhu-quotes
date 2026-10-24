@@ -100,3 +100,29 @@ v1-paper/ … v5-mono/       五个版本各自的 MainView.kt 与配色
 - **v1.0.0**（2026-10-23）五个版本首发。真机环境：小米 10 Pro，Android 16（SDK 37），HyperOS V816。
 - 构建环境：JDK 21（`/opt/homebrew/opt/openjdk@21`），AGP 8.9.2，Kotlin 2.0.21，compileSdk 35，minSdk 26。
 - 五个包签名一致（SHA-256 `ce0d38e4…c152d`），后续升级请沿用同一个 `release.keystore`。
+
+
+---
+
+## v2.0.0（2026-10-24）
+
+五个版本重做成**五套不同的信息架构**，不再是同一种版式换肤。
+
+| 版本 | 包名 | 交互 |
+|---|---|---|
+| 日历 | com.mingzhu.calendar | 月历点选，任意历史日期 |
+| 书页 | com.mingzhu.book | 上下滑逐句、横滑换书 |
+| 时间轴 | com.mingzhu.timeline | 竖向倒序历史流 |
+| 书架 | com.mingzhu.shelf | 书脊墙，点开看该书 20 句 |
+| 归档 | com.mingzhu.archive | 220 句索引卡 + 作者筛选 + 收藏 |
+
+内容：11 本书 × 20 句 = 220 句，全部公版。每日一本书，按日期轮转；
+给定日期离线就能推算出当天书目与句子，所以历史可查不依赖网络。
+
+字体：默认得意黑。每个包内置三款（得意黑 / 新细黑 / 马克黑），点底部「字体」即时切换，
+界面与海报同步生效。另六款（文楷、文楷轻、文楷 TC、新致宋、致宋、汇文明朝）已完成子集化，
+因体积原因未打进安装包。
+
+体积：字体子集化后，APK 从 48.6 MB 降到 9.0 MB。
+
+下载：[v2.0.0](https://github.com/johnson020202/mingzhu-quotes/releases/tag/v2.0.0)
