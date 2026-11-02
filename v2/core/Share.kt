@@ -69,17 +69,43 @@ object Share {
         return f
     }
 
+    /**
+     * 分享：优先把图片写进系统媒体库并用 MediaStore 的 content:// URI，
+     * 这样不依赖 FileProvider 的 authorities 配置，也不会因为没有 file_paths 而崩。
+     * 媒体库写入失败时才回落到 FileProvider。
+     */
     fun intent(context: Context, file: File, title: String): Intent {
-        val uri: Uri = FileProvider.getUriForFile(context, context.packageName + ".posts", file)
+        val uri = publishToMediaStore(context, file) ?: run {
+            FileProvider.getUriForFile(context, context.packageName + ".posts", file)
+        }
         val send = Intent(Intent.ACTION_SEND).apply {
             type = "image/png"
             putExtra(Intent.EXTRA_STREAM, uri)
             putExtra(Intent.EXTRA_SUBJECT, title)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            clipData = android.content.ClipData.newRawUri("poster", uri)
         }
         return Intent.createChooser(send, "分享摘抄海报").apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
+    }
+
+    /** 写入相册 Pictures/明著摘录，返回 content URI；失败返回 null。 */
+    private fun publishToMediaStore(context: Context, file: File): Uri? = try {
+        val values = android.content.ContentValues().apply {
+            put(android.provider.MediaStore.Images.Media.DISPLAY_NAME, file.name)
+            put(android.provider.MediaStore.Images.Media.MIME_TYPE, "image/png")
+            put(android.provider.MediaStore.Images.Media.RELATIVE_PATH,
+                android.os.Environment.DIRECTORY_PICTURES + "/明著摘录")
+        }
+        val resolver = context.contentResolver
+        val uri = resolver.insert(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+        if (uri == null) null else {
+            resolver.openOutputStream(uri)?.use { out -> file.inputStream().copyTo(out) }
+            uri
+        }
+    } catch (_: Throwable) {
+        null
     }
 
     /** 直接抓一个已经排好版的 View，用于分享当前画面。 */

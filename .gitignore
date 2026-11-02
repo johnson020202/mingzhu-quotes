@@ -4,3 +4,8 @@ local.properties
 signing.properties
 *.keystore
 .DS_Store
+
+# 本地构建产物与运行时数据（不入库）
+dist-v2-1/
+dist-v3/
+server-v2/data/
